@@ -12,7 +12,9 @@ const App = () => {
 
     const [places, setPlaces] = useState([])
     const [coordinates, setCoordinates] = useState({})
-    const [bounds, setBounds] = useState(null)
+    const [bounds, setBounds] = useState({})
+    const [childClicked, setChildClicked] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
 
     // get user location information
     useEffect(() => {
@@ -25,11 +27,13 @@ const App = () => {
     }, [])
 
     useEffect(() =>{
+        setIsLoading(true)
         // call the api
-        getPlacesData(bounds?.sw, bounds?.ne)
+        getPlacesData(bounds.sw, bounds.ne)
             .then((data) => {
                 console.log(data)
                 setPlaces(data)
+                setIsLoading(false)
             })
             .catch((err) => {
                 console.error(err)
@@ -42,10 +46,10 @@ const App = () => {
             <Header />
             <Grid container spacing={3} style={{ width: '100%' }}>
                 <Grid item xs={12} md={4}>
-                    <List places={places} />
+                    <List childClicked={childClicked} places={places} isLoading={isLoading} />
                 </Grid>
                 <Grid item xs={12} md={8}>
-                    <Map setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates} />
+                    <Map setChildClicked={setChildClicked} places={places} setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates} />
                 </Grid>
             </Grid>
         </>
