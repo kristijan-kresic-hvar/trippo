@@ -4,12 +4,9 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails'
 
 import useStyles from './styles'
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
 
     const classes = useStyles()
-    const [type, setType] = useState("restaurants")
-    const [rating, setRating] = useState(0)
-
     const [elRefs, setElRefs] = useState([])
 
     useEffect(() => {
@@ -44,7 +41,7 @@ const List = ({ places, childClicked, isLoading }) => {
                         <MenuItem value={3}>Above 3.0</MenuItem>
                         <MenuItem value={4}>Above 4.0</MenuItem>
                         <MenuItem value={4.5}>Above 4.5</MenuItem>
-                    </Select>s
+                    </Select>
                 </FormControl>
                 <Grid container spacing={3} className={classes.list}>
                     {places?.map((place, index) => (
