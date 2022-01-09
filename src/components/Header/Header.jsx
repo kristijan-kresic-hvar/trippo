@@ -1,10 +1,11 @@
 import React from 'react'
 import { Autocomplete } from '@react-google-maps/api'
-import { AppBar, Toolbar, Typography, InputBase, Box } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, InputBase, Box, Button } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
+import MyLocationIcon from '@material-ui/icons/MyLocation';
 import useStyles from './styles'
 
-const Header = () => {
+const Header = ({ setUserCoords }) => {
 
     const classes = useStyles()
 
@@ -15,9 +16,9 @@ const Header = () => {
                     Trippo
                 </Typography>
                 <Box display="flex">
-                    <Typography variant="h6" className={classes.title}>
-                        Explore new places
-                    </Typography>
+                    <Button className={classes.button} size="small" onClick={() => setUserCoords()}>
+                        <MyLocationIcon />
+                    </Button>
                     {/* <Autocomplete> */}
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>

@@ -16,14 +16,18 @@ const App = () => {
     const [childClicked, setChildClicked] = useState({})
     const [isLoading, setIsLoading] = useState(false)
 
-    // get user location information
-    useEffect(() => {
+    const setUserCoords = () => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCoordinates({
                 lat: latitude,
                 lng: longitude
             })
         })
+    }
+
+    // get user location information
+    useEffect(() => {
+        setUserCoords()
     }, [])
 
     useEffect(() =>{
@@ -43,7 +47,7 @@ const App = () => {
     return (
         <>
             <CssBaseline />
-            <Header />
+            <Header setUserCoords={setUserCoords} />
             <Grid container spacing={3} style={{ width: '100%' }}>
                 <Grid item xs={12} md={4}>
                     <List childClicked={childClicked} places={places} isLoading={isLoading} />

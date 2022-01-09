@@ -6,6 +6,11 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    background: 'linear-gradient(to right, #FF0000 0%, #FFFF00 25%, #05C1FF 50%, #FFFF00 75%, #FF0000 100%)',
+    backgroundClip: 'text',
+    textFillColor: 'transparent',
+    letterSpacing: '.5rem',
+    fontWeight: 'bold'
   },
   search: {
     position: 'relative',
@@ -27,6 +32,11 @@ export default makeStyles((theme) => ({
     padding: theme.spacing(1, 1, 1, 0), paddingLeft: `calc(1em + ${theme.spacing(4)}px)`, transition: theme.transitions.create('width'), width: '100%', [theme.breakpoints.up('md')]: { width: '20ch' },
   },
   toolbar: {
-    display: 'flex', justifyContent: 'space-between',
+    display: 'flex', 
+    justifyContent: 'space-between',
+    backgroundColor: '#212120',
   },
+  button: {
+    color: '#ffffff'
+  }
 }));

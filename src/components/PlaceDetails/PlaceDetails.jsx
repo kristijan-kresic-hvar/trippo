@@ -12,10 +12,6 @@ const PlaceDetails = ({ place, selected, refProp }) => {
     
     const classes = useStyles()
 
-    console.log(selected)
-    console.log(refProp)
-
-
     return (
         <Card elevation={6}>
             <CardMedia 
