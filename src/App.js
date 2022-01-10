@@ -40,24 +40,26 @@ const App = () => {
     }, [rating])
 
     useEffect(() =>{
-        setIsLoading(true)
-        // call the api
-        getPlacesData(type, bounds.sw, bounds.ne)
-            .then((data) => {
-                console.log(data)
-                setPlaces(data)
-                setFilteredPlaces([])
-                setIsLoading(false)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
-    }, [type, coordinates, bounds])
+        if(bounds.sw && bounds.ne) {
+            setIsLoading(true)
+            // call the api
+            getPlacesData(type, bounds.sw, bounds.ne)
+                .then((data) => {
+                    console.log(data)
+                    setPlaces(data?.filter((place) => place.name && place.num_reviews > 0))
+                    setFilteredPlaces([])
+                    setIsLoading(false)
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
+        }
+    }, [type, bounds])
 
     return (
         <>
             <CssBaseline />
-            <Header setUserCoords={setUserCoords} />
+            <Header setUserCoords={setUserCoords} setCoordinates={setCoordinates} />
             <Grid container spacing={3} style={{ width: '100%' }}>
                 <Grid item xs={12} md={4}>
                     <List 

@@ -12,7 +12,7 @@ export const getPlacesData = async (type = "restaurant", sw, ne) => {
               },
               headers: {
                 'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
-                'x-rapidapi-key': '35d2501eedmsh482997fb078b314p180993jsne11f0f401f80'
+                'x-rapidapi-key': 'f91d7cce03msh04c6da0c6a0fac5p160ec7jsn9e8da449e40e'
               }
         })
 
