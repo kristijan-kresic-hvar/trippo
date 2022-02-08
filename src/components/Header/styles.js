@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
       display: 'block',
     },
     background: 'linear-gradient(to right, #FF0000 0%, #FFFF00 25%, #05C1FF 50%, #FFFF00 75%, #FF0000 100%)',
+    webkitBackgroundClip: 'text',
     backgroundClip: 'text',
     textFillColor: 'transparent',
     letterSpacing: '.5rem',

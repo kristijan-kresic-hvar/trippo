@@ -22,7 +22,7 @@ const Header = ({ setUserCoords, setCoordinates }) => {
     return(
         <AppBar position="static">
             <Toolbar className={classes.toolbar}>
-                <Typography variant="h5" className={classes.title}>
+                <Typography variant="h5" className={classes.title} style={{webkitBackgroundClip: 'text'}}>
                     Trippo
                 </Typography>
                 <Box display="flex">
